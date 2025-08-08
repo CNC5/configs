@@ -1,0 +1,25 @@
+function groot
+  cd (git rev-parse --show-toplevel)
+end
+
+function endir
+    mkdir -p $argv[1] && cd $argv[1]
+end
+
+function indir
+    mkdir -p $argv[1] && fish -C "cd $argv[1]"
+end
+
+alias duh="du -had1 2>/dev/null | sort -h"
+
+function dup
+  docker compose up -d $argv
+end
+
+function ddown
+  docker compose down $argv
+end
+
+function dreup
+  docker compose down $argv && dup
+end
