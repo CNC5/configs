@@ -1,3 +1,15 @@
+function mknano
+    set -l files
+    for f in $argv
+        set -a files $f
+        set -l d (dirname $f)
+        if not test -d $d
+            mkdir -p $d
+        end
+    end
+    nano $files
+end
+
 function groot
   cd (git rev-parse --show-toplevel)
 end
@@ -14,6 +26,10 @@ alias duh="du -had1 2>/dev/null | sort -h"
 
 function dup
   docker compose up -d $argv
+end
+
+function dps
+  docker compose ps $argv
 end
 
 function ddown
