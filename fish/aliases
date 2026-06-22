@@ -39,3 +39,7 @@ end
 function dreup
   docker compose down $argv && dup
 end
+
+function dpull
+  docker compose pull $argv
+end
